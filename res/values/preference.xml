@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="url_gravatar">http://gravatar.com/avatar/</string>
+    <string name="tag">dmha</string>
+</resources>
