@@ -104,7 +104,7 @@
             </EditText>
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/login_init"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"

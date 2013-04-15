@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="url_gravatar">http://gravatar.com/avatar/</string>
+    <string name="url_login">http://192.168.1.2:8000/get_info_user</string>
+    
+        
     <string name="tag">dmha</string>
 </resources>

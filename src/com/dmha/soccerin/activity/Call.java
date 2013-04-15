@@ -30,6 +30,18 @@ public class Call extends Activity {
         return super.onOptionsItemSelected(item);
     }
         
+    public void createCall(View view) {
+    
+	}
+    
+    public void invitationCall(View view) {
+        
+	}
+    
+    public void myCall(View view) {
+        
+	}
+    
     public void back(View view) {
 		finish();
 	}

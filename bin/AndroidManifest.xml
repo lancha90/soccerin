@@ -18,11 +18,6 @@
         <activity
             android:name="com.dmha.soccerin.activity.Main"
             android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.dmha.soccerin.activity.Profile"
@@ -58,6 +53,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dmha.soccerin.activity.Main" />
+        </activity>
+        <activity
+            android:name="com.dmha.soccerin.activity.Login"
+            android:label="@string/title_activity_login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

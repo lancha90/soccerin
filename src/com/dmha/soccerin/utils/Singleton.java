@@ -6,8 +6,11 @@ public class Singleton {
 	 private static String username = "lancha90";
 	 private static String email = "diegomao627@gmail.com";
 	 private static String name = "diego mauricio herrera alzate";
+	 private static String profile = "MF";
+	 private static double ranking = 9.5;
+	 private static double level = 9.5;
 	 private static int position = 1;
-	 private static int edad = 22;
+	 private static int old = 22;
 	 private static String city = "Armenia, Q";
 	 private static String idUser = "857aa80e024bc0d9dac7f49b8da686d6?s=200";
      private Singleton(){}
@@ -27,7 +30,6 @@ public class Singleton {
 	}
 	public static void setEmail(String email) {
 		Singleton.email = email;
-		Singleton.idUser = Utils.md5(email);
 	}
 	public static String getName() {
 		return name;
@@ -41,17 +43,36 @@ public class Singleton {
 	public static void setPosition(int position) {
 		Singleton.position = position;
 	}
-	public static String getEdad() {
-		return ""+edad;
-	}
-	public static void setEdad(int edad) {
-		Singleton.edad = edad;
-	}
 	public static String getCity() {
 		return city;
 	}
 	public static void setCity(String city) {
 		Singleton.city = city;
 	}
+	public static double getRanking() {
+		return ranking;
+	}
+	public static void setRanking(double ranking) {
+		Singleton.ranking = ranking;
+	}
+	public static double getLevel() {
+		return level;
+	}
+	public static void setLevel(double level) {
+		Singleton.level = level;
+	}
+	public static String getProfile() {
+		return profile;
+	}
+	public static void setProfile(String profile) {
+		Singleton.profile = profile;
+	}
+	public static int getOld() {
+		return old;
+	}
+	public static void setOld(int old) {
+		Singleton.old = old;
+	}
+	
 
 }

@@ -26,7 +26,7 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/button1"
+                    android:id="@+id/login_init"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -51,7 +51,7 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/call_diary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -166,7 +166,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/TextView03"
+                android:id="@+id/profile_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/eventos"

@@ -1,6 +1,6 @@
 package com.dmha.soccerin.activity;
 
-import com.dmha.soccerin.utils.DownloadImagesTask;
+import com.dmha.soccerin.asynctask.DownloadImagesTask;
 import com.dmha.soccerin.utils.Singleton;
 import com.dmha.soccerin.utils.Utils;
 
@@ -23,6 +23,8 @@ public class Profile extends Activity {
 	private TextView profileUsername;
 	private TextView profileCity;
 	private TextView profileYears;
+	private TextView profileLevel;
+	private TextView profileRanking;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class Profile extends Activity {
 		profileUsername = (TextView) findViewById(R.id.profile_username);
 		profileCity = (TextView) findViewById(R.id.profile_city);
 		profileYears = (TextView) findViewById(R.id.profile_old);
+		profileRanking = (TextView) findViewById(R.id.profile_ranking);
+		profileLevel = (TextView) findViewById(R.id.profile_level);
 
 		setInformation();
 
@@ -47,7 +51,10 @@ public class Profile extends Activity {
 		profileName.setText(Singleton.getName());
 		profileUsername.setText(Singleton.getUsername());
 		profileCity.setText(Singleton.getCity());
-		profileYears.setText(Singleton.getEdad());
+		profileYears.setText(""+Singleton.getOld());
+		profileLevel.setText(""+Singleton.getLevel());
+		profileRanking.setText(""+Singleton.getRanking());
+		
 
 		profilePhoto.setTag(this.getString(R.string.url_gravatar)
 				+ Singleton.getIdUser());
