@@ -67,16 +67,11 @@
         android:layout_weight="8"
         android:orientation="vertical" >
 
-        <ScrollView
-            android:id="@+id/scrollView1"
+        <ListView
+            android:id="@+id/listEvents"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="match_parent" >
+        </ListView>
 
     </LinearLayout>
 
@@ -91,6 +86,41 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/event_my_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToMyEvent"
+                    android:text="@string/my_event" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/event_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToCreate"
+                    android:text="@string/event_create" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 

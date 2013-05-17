@@ -1,6 +1,6 @@
 package com.dmha.soccerin.activity;
 
-import com.dmha.soccerin.asynctask.DownloadImagesTask;
+import com.dmha.soccerin.asynctask.TaskDownloadImages;
 import com.dmha.soccerin.utils.Singleton;
 import com.dmha.soccerin.utils.Utils;
 
@@ -58,7 +58,8 @@ public class Profile extends Activity {
 
 		profilePhoto.setTag(this.getString(R.string.url_gravatar)
 				+ Singleton.getIdUser());
-		new DownloadImagesTask().execute(profilePhoto);
+		
+		new TaskDownloadImages().execute(profilePhoto);
 		
 		switch (Singleton.getPosition()) {
 		case 1:

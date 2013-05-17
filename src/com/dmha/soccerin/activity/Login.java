@@ -3,7 +3,7 @@ package com.dmha.soccerin.activity;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dmha.soccerin.asynctask.UserInformation;
+import com.dmha.soccerin.asynctask.TaskUserInformation;
 import com.dmha.soccerin.utils.Utils;
 
 import android.os.Bundle;
@@ -42,7 +42,7 @@ public class Login extends Activity implements OnClickListener{
 		credentials.put("username",username.getText().toString());
 		credentials.put("url",getString(R.string.url_login));
 		
-		new UserInformation(this).execute(credentials);
+		new TaskUserInformation(this).execute(credentials);
 	}
 
 	public void goToMain(){

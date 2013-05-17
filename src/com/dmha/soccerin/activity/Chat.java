@@ -163,8 +163,6 @@ public class Chat extends Activity implements IOCallback {
 				
 				addMessage(json_nick, json_message);
 				
-				Log.i(TAG, "----> '" + json_message + json_nick+"'");
-				
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				Log.i(TAG, "Server triggered event ' error en el json '");

@@ -24,5 +24,10 @@
     <string name="password">Contraseña</string>
     <string name="calificacion">Calificación</string>
     <string name="nivel_juego">"Nivel de Juego: "</string>
+    <string name="event_date">"Fecha: "</string>
+    <string name="event_field">"Cancha: "</string>
+    <string name="event_duration">"Duración: "</string>
+    <string name="my_event">Mis Eventos</string>
+    <string name="event_create">Crear Evento</string>
 
 </resources>
