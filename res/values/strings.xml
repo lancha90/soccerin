@@ -29,5 +29,16 @@
     <string name="event_duration">"Duración: "</string>
     <string name="my_event">Mis Eventos</string>
     <string name="event_create">Crear Evento</string>
+    <string name="event_cancha">"Cancha: "</string>
+    <string name="event_hours">"Hora: "</string>
+    <string name="event_user">Usuario:</string>
+    <string name="all_event">Todos Los Eventos</string>
+    <string name="team_name">"Nombre: "</string>
+    <string name="team_foto">"Foto: "</string>
+    <string name="team_description">"Descripción: "</string>
+    <string name="team_user">"Representante: "</string>
+    <string name="all_team">Todos Los Equipos</string>
+    <string name="my_team">Mis Equipos</string>
+    <string name="team_create">Crear Equipo</string>
 
 </resources>

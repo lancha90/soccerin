@@ -61,19 +61,18 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <ViewFlipper
+        android:id="@+id/vf_events"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:orientation="vertical" >
+        android:layout_weight="8" >
 
-        <ListView
-            android:id="@+id/listEvents"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </ListView>
+        <include layout="@layout/layout_event_all_event" />
 
-    </LinearLayout>
+        <include layout="@layout/layout_event_my_event" />
+
+        <include layout="@layout/layout_event_create_event" />
+    </ViewFlipper>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,7 +94,23 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/event_my_event"
+                    android:id="@+id/team_all_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToAllEvent"
+                    android:text="@string/all_event" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/team_my_team"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -112,7 +127,7 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/event_create"
+                    android:id="@+id/team_create"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

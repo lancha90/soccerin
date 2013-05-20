@@ -33,14 +33,17 @@ public class AdapterEvent extends ArrayAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		MyView = inflater.inflate(R.layout.item_events, null);
 
-		TextView date = (TextView) MyView.findViewById(R.id.item_event_date);
-		date.setText(contenidos.get(position).getDate());
+		TextView date = (TextView) MyView.findViewById(R.id.item_team_name);
+		date.append(" "+contenidos.get(position).getDate());
 		
 		TextView field = (TextView) MyView.findViewById(R.id.item_event_field);
-		field.setText(contenidos.get(position).getDuration());
+		field.append(" "+contenidos.get(position).getField());
 		
 		TextView duration = (TextView) MyView.findViewById(R.id.item_event_duration);
-		duration.setText(contenidos.get(position).getDuration());
+		duration.append(" "+contenidos.get(position).getDuration());
+		
+		TextView user = (TextView) MyView.findViewById(R.id.item_team_user);
+		user.append(" "+contenidos.get(position).getUser());
 		
 		return MyView;
 	}

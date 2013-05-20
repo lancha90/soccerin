@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import com.dmha.soccerin.activity.Event;
 import com.dmha.soccerin.activity.Login;
 import com.dmha.soccerin.activity.Main;
+import com.dmha.soccerin.activity.Team;
 import com.dmha.soccerin.utils.Singleton;
 import com.github.kevinsawicki.http.HttpRequest;
 
@@ -19,13 +20,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class TaskEventUser extends
+public class TaskTeamUser extends
 		AsyncTask<Map<String, String>, String, String> {
 
 	private ProgressDialog progDailog;
-	private Event activity;
+	private Team activity;
 
-	public TaskEventUser(Event activity) {
+	public TaskTeamUser(Team activity) {
 		this.activity = activity;
 	}
 
@@ -55,7 +56,7 @@ public class TaskEventUser extends
 
 			try {
 
-				ArrayList<com.dmha.soccerin.entity.Event> events = new ArrayList<com.dmha.soccerin.entity.Event>();
+				ArrayList<com.dmha.soccerin.entity.Team> teams = new ArrayList<com.dmha.soccerin.entity.Team>();
 
 				JSONArray jsonArray = new JSONArray(result);
 
@@ -64,16 +65,16 @@ public class TaskEventUser extends
 					JSONObject jsonData = jsonObject.getJSONObject("fields");
 
 					String id = jsonObject.getString("pk");
-					String date = jsonData.getString("date");
-					String duration = jsonData.getString("duration");
-					String field = jsonData.getString("field");
-					String user = jsonData.getString("user");
+					String image = jsonData.getString("image");
+					String user = jsonData.getString("manage");
+					String name = jsonData.getString("name");
+					String description = jsonData.getString("description");
 
-					events.add(new com.dmha.soccerin.entity.Event(id, date,
-							field, duration, user));
+					
+					teams.add(new com.dmha.soccerin.entity.Team(id,user,name,description,image));
 				}
 
-				activity.loadDataMyEvent(events);
+				activity.loadDataMyTeam(teams);
 
 			} catch (JSONException e) {
 				e.printStackTrace();

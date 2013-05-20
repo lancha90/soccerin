@@ -19,13 +19,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class TaskEventUser extends
+public class TaskEventAll extends
 		AsyncTask<Map<String, String>, String, String> {
 
 	private ProgressDialog progDailog;
 	private Event activity;
 
-	public TaskEventUser(Event activity) {
+	public TaskEventAll(Event activity) {
 		this.activity = activity;
 	}
 
@@ -73,7 +73,7 @@ public class TaskEventUser extends
 							field, duration, user));
 				}
 
-				activity.loadDataMyEvent(events);
+				activity.loadDataAllEvent(events);
 
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -96,7 +96,8 @@ public class TaskEventUser extends
 
 		String url = data.get("url");
 		data.remove("url");
-		HttpRequest httpRequest = HttpRequest.post(url).form(data);
+		
+		HttpRequest httpRequest = HttpRequest.get(url);
 
 		if (httpRequest.code() != 404) {
 			return httpRequest.body();

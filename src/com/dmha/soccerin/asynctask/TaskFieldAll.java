@@ -8,24 +8,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.dmha.soccerin.activity.Event;
-import com.dmha.soccerin.activity.Login;
-import com.dmha.soccerin.activity.Main;
-import com.dmha.soccerin.utils.Singleton;
 import com.github.kevinsawicki.http.HttpRequest;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
-public class TaskEventUser extends
+public class TaskFieldAll extends
 		AsyncTask<Map<String, String>, String, String> {
 
 	private ProgressDialog progDailog;
 	private Event activity;
 
-	public TaskEventUser(Event activity) {
+	public TaskFieldAll(Event activity) {
 		this.activity = activity;
 	}
 
@@ -55,7 +49,7 @@ public class TaskEventUser extends
 
 			try {
 
-				ArrayList<com.dmha.soccerin.entity.Event> events = new ArrayList<com.dmha.soccerin.entity.Event>();
+				ArrayList<String> fields= new ArrayList<String>();
 
 				JSONArray jsonArray = new JSONArray(result);
 
@@ -63,17 +57,10 @@ public class TaskEventUser extends
 					JSONObject jsonObject = jsonArray.getJSONObject(i);
 					JSONObject jsonData = jsonObject.getJSONObject("fields");
 
-					String id = jsonObject.getString("pk");
-					String date = jsonData.getString("date");
-					String duration = jsonData.getString("duration");
-					String field = jsonData.getString("field");
-					String user = jsonData.getString("user");
-
-					events.add(new com.dmha.soccerin.entity.Event(id, date,
-							field, duration, user));
+					fields.add(jsonData.getString("name"));
 				}
 
-				activity.loadDataMyEvent(events);
+				activity.loadDataFileds(fields);
 
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -96,7 +83,8 @@ public class TaskEventUser extends
 
 		String url = data.get("url");
 		data.remove("url");
-		HttpRequest httpRequest = HttpRequest.post(url).form(data);
+		
+		HttpRequest httpRequest = HttpRequest.get(url);
 
 		if (httpRequest.code() != 404) {
 			return httpRequest.body();

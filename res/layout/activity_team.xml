@@ -67,16 +67,15 @@
         android:layout_weight="8"
         android:orientation="vertical" >
 
-        <ScrollView
-            android:id="@+id/scrollView1"
+        <ViewFlipper
+            android:id="@+id/vf_team"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="match_parent" >
+            
+            <include layout="@layout/layout_team_all_team"/>
+            <include layout="@layout/layout_team_my_team"/>
+            <include layout="@layout/layout_team_create_team"/>
+        </ViewFlipper>
 
     </LinearLayout>
 
@@ -89,9 +88,57 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center" >
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/team_all_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToAllTeam"
+                    android:text="@string/all_team" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/team_my_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToMyTeam"
+                    android:text="@string/my_team" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/team_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="goToTeam"
+                    android:text="@string/team_create" />
+            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <!-- SERVICE -->
     <string name="url_gravatar">http://gravatar.com/avatar/</string>
+    
+    <!-- LOGIN -->
     <string name="url_login">http://192.168.1.2:8000/get_info_user</string>
+    
+    <!-- EVENT -->
     <string name="url_my_event">http://192.168.1.2:8000/get_my_event</string>
+    <string name="url_all_event">http://192.168.1.2:8000/get_all_event</string>
+    <string name="url_create_event">http://192.168.1.2:8000/add_event</string>
+    
+    <!-- FIELDS -->
+    <string name="url_all_fields">http://192.168.1.2:8000/get_all_field</string>
+    
+    <!-- EVENT -->
+    <string name="url_my_team">http://192.168.1.2:8000/get_my_team</string>
+    <string name="url_all_team">http://192.168.1.2:8000/get_all_team</string>
+    <string name="url_create_team">http://192.168.1.2:8000/add_team</string>
+    
     
         
     <string name="tag">dmha</string>
