@@ -9,6 +9,7 @@ import com.dmha.soccerin.adapters.AdapterTeam;
 import com.dmha.soccerin.asynctask.TaskEventAll;
 import com.dmha.soccerin.asynctask.TaskEventCreate;
 import com.dmha.soccerin.asynctask.TaskEventUser;
+import com.dmha.soccerin.asynctask.TaskTeamAddUser;
 import com.dmha.soccerin.asynctask.TaskTeamAll;
 import com.dmha.soccerin.asynctask.TaskTeamUser;
 import com.dmha.soccerin.utils.Singleton;
@@ -16,15 +17,23 @@ import com.dmha.soccerin.utils.Utils;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-public class Team extends Activity {
+public class Team extends Activity implements OnItemClickListener{
 
 	public float init_x;
 	public ViewFlipper vf;
@@ -85,6 +94,16 @@ public class Team extends Activity {
 
 	}
 	
+	private void suscriptionTema(String team){
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("url", getString(R.string.url_add_user_team));
+		params.put("user", Singleton.getUsername());
+		params.put("team", team);
+
+		new TaskTeamAddUser(this).execute(params);
+	}
+	
 	/**
 	 * Metodo encargado de listar los eventos del usuario
 	 * 
@@ -103,8 +122,8 @@ public class Team extends Activity {
 	 */
 	public void loadDataAllTeam(
 			ArrayList<com.dmha.soccerin.entity.Team> myTeams) {
-
 		listAllTeam.setAdapter(new AdapterTeam(this, myTeams));
+		listAllTeam.setOnItemClickListener(this);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -147,6 +166,31 @@ public class Team extends Activity {
 		vf.setDisplayedChild(0);
 	}
 	
+	public void onItemClick(AdapterView<?> arg0, final View view, int i, long arg3) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(getResources().getString(R.string.team_confirm))
+		        .setTitle("Advertencia")
+		        .setCancelable(false)
+		        .setNegativeButton(getResources().getString(R.string.team_confirm_no),
+		                new DialogInterface.OnClickListener() {
+		                    public void onClick(DialogInterface dialog, int id) {
+		                        dialog.cancel();
+		                    }
+		                })
+		        .setPositiveButton(getResources().getString(R.string.team_confirm_yes),
+		                new DialogInterface.OnClickListener() {
+		                    public void onClick(DialogInterface dialog, int id) {
+		                        
+		                    	
+		                    	TextView text = (TextView) view.findViewById(R.id.item_team_name);
+		                    	suscriptionTema(text.getText().toString());
+		                    	
+		                    	
+		                    }
+		                });
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
 	
 	/**
 	 * Clase encargada de permitir pasar de interface para los eventos
@@ -182,4 +226,6 @@ public class Team extends Activity {
 		}
 
 	}
+
+	
 }

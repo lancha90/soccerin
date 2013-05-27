@@ -15,9 +15,10 @@
     <!-- FIELDS -->
     <string name="url_all_fields">http://192.168.1.2:8000/get_all_field</string>
     
-    <!-- EVENT -->
+    <!-- TEAM -->
     <string name="url_my_team">http://192.168.1.2:8000/get_my_team</string>
     <string name="url_all_team">http://192.168.1.2:8000/get_all_team</string>
+    <string name="url_add_user_team">http://192.168.1.2:8000/add_user_team</string>
     <string name="url_create_team">http://192.168.1.2:8000/add_team</string>
     
     

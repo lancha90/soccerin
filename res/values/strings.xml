@@ -40,5 +40,9 @@
     <string name="all_team">Todos Los Equipos</string>
     <string name="my_team">Mis Equipos</string>
     <string name="team_create">Crear Equipo</string>
+    <string name="team_all_team">Lista de Equipos</string>
+    <string name="team_confirm">¿Desea inscribirse en este equipo?</string>
+    <string name="team_confirm_yes">Si</string>
+    <string name="team_confirm_no">No</string>
 
 </resources>

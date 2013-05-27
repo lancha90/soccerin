@@ -35,10 +35,10 @@ public class AdapterTeam extends ArrayAdapter {
 		MyView = inflater.inflate(R.layout.item_teams, null);
 
 		TextView name = (TextView) MyView.findViewById(R.id.item_team_name);
-		name.append(" "+team.get(position).getName());
+		name.setText(team.get(position).getName());
 		
 		TextView user = (TextView) MyView.findViewById(R.id.item_team_user);
-		user.append(" "+team.get(position).getUser());
+		user.setText(team.get(position).getUser());
 		
 		
 		

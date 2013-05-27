@@ -123,52 +123,57 @@ public final class R {
         public static final int login=0x7f080006;
     }
     public static final class string {
-        public static final int action_settings=0x7f06001b;
-        public static final int all_event=0x7f060029;
-        public static final int all_team=0x7f06002e;
-        public static final int app_name=0x7f06000a;
-        public static final int calificacion=0x7f06001f;
-        public static final int ciudad=0x7f060016;
-        public static final int convocatoria=0x7f06000e;
-        public static final int edad=0x7f060015;
-        public static final int equipos=0x7f06000f;
-        public static final int event_cancha=0x7f060026;
-        public static final int event_create=0x7f060025;
-        public static final int event_date=0x7f060021;
-        public static final int event_duration=0x7f060023;
-        public static final int event_field=0x7f060022;
-        public static final int event_hours=0x7f060027;
-        public static final int event_user=0x7f060028;
-        public static final int eventos=0x7f060011;
-        public static final int hello_world=0x7f06000b;
-        public static final int jugadores=0x7f060010;
-        public static final int menu_settings=0x7f06000c;
-        public static final int my_event=0x7f060024;
-        public static final int my_team=0x7f06002f;
-        public static final int nivel_juego=0x7f060020;
-        public static final int password=0x7f06001e;
-        public static final int personal=0x7f060012;
-        public static final int posicion=0x7f060014;
-        public static final int tag=0x7f060009;
-        public static final int team_create=0x7f060030;
-        public static final int team_description=0x7f06002c;
-        public static final int team_foto=0x7f06002b;
-        public static final int team_name=0x7f06002a;
-        public static final int team_user=0x7f06002d;
-        public static final int title_activity_call=0x7f060017;
-        public static final int title_activity_chat=0x7f06001a;
-        public static final int title_activity_event=0x7f060019;
-        public static final int title_activity_login=0x7f06001c;
-        public static final int title_activity_main=0x7f06000d;
-        public static final int title_activity_profile=0x7f060013;
-        public static final int title_activity_team=0x7f060018;
+        public static final int action_settings=0x7f06001c;
+        public static final int all_event=0x7f06002a;
+        public static final int all_team=0x7f06002f;
+        public static final int app_name=0x7f06000b;
+        public static final int calificacion=0x7f060020;
+        public static final int ciudad=0x7f060017;
+        public static final int convocatoria=0x7f06000f;
+        public static final int edad=0x7f060016;
+        public static final int equipos=0x7f060010;
+        public static final int event_cancha=0x7f060027;
+        public static final int event_create=0x7f060026;
+        public static final int event_date=0x7f060022;
+        public static final int event_duration=0x7f060024;
+        public static final int event_field=0x7f060023;
+        public static final int event_hours=0x7f060028;
+        public static final int event_user=0x7f060029;
+        public static final int eventos=0x7f060012;
+        public static final int hello_world=0x7f06000c;
+        public static final int jugadores=0x7f060011;
+        public static final int menu_settings=0x7f06000d;
+        public static final int my_event=0x7f060025;
+        public static final int my_team=0x7f060030;
+        public static final int nivel_juego=0x7f060021;
+        public static final int password=0x7f06001f;
+        public static final int personal=0x7f060013;
+        public static final int posicion=0x7f060015;
+        public static final int tag=0x7f06000a;
+        public static final int team_all_team=0x7f060032;
+        public static final int team_confirm=0x7f060033;
+        public static final int team_confirm_no=0x7f060035;
+        public static final int team_confirm_yes=0x7f060034;
+        public static final int team_create=0x7f060031;
+        public static final int team_description=0x7f06002d;
+        public static final int team_foto=0x7f06002c;
+        public static final int team_name=0x7f06002b;
+        public static final int team_user=0x7f06002e;
+        public static final int title_activity_call=0x7f060018;
+        public static final int title_activity_chat=0x7f06001b;
+        public static final int title_activity_event=0x7f06001a;
+        public static final int title_activity_login=0x7f06001d;
+        public static final int title_activity_main=0x7f06000e;
+        public static final int title_activity_profile=0x7f060014;
+        public static final int title_activity_team=0x7f060019;
+        public static final int url_add_user_team=0x7f060008;
         public static final int url_all_event=0x7f060003;
         /**  FIELDS 
          */
         public static final int url_all_fields=0x7f060005;
         public static final int url_all_team=0x7f060007;
         public static final int url_create_event=0x7f060004;
-        public static final int url_create_team=0x7f060008;
+        public static final int url_create_team=0x7f060009;
         /**  SERVICE 
          */
         public static final int url_gravatar=0x7f060000;
@@ -178,10 +183,10 @@ public final class R {
         /**  EVENT 
          */
         public static final int url_my_event=0x7f060002;
-        /**  EVENT 
+        /**  TEAM 
          */
         public static final int url_my_team=0x7f060006;
-        public static final int username=0x7f06001d;
+        public static final int username=0x7f06001e;
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
