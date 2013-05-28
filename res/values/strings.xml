@@ -45,5 +45,7 @@
     <string name="team_confirm_yes">Si</string>
     <string name="team_confirm_no">No</string>
     <string name="menu_share">Compartir</string>
+    <string name="login_start">Iniciar Sesión</string>
+    <string name="login_tw">Twitter</string>
 
 </resources>
