@@ -44,5 +44,6 @@
     <string name="team_confirm">¿Desea inscribirse en este equipo?</string>
     <string name="team_confirm_yes">Si</string>
     <string name="team_confirm_no">No</string>
+    <string name="menu_share">Compartir</string>
 
 </resources>
