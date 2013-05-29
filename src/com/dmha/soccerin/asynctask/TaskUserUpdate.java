@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import com.dmha.soccerin.activity.Login;
 import com.dmha.soccerin.activity.Main;
+import com.dmha.soccerin.activity.Profile;
 import com.dmha.soccerin.utils.Singleton;
 import com.github.kevinsawicki.http.HttpRequest;
 
@@ -18,12 +19,12 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-public class TaskUserInformation extends AsyncTask<Map<String, String>, String, String> {
+public class TaskUserUpdate extends AsyncTask<Map<String, String>, String, String> {
 	
 	private ProgressDialog progDailog;
-	private Login activity;
+	private Profile activity;
 	
-	public TaskUserInformation(Login activity){
+	public TaskUserUpdate(Profile activity){
 		this.activity = activity;
 	}
 	
@@ -49,25 +50,7 @@ public class TaskUserInformation extends AsyncTask<Map<String, String>, String, 
 		if(result.equals("404")){
 			//context.finish();
 		}else{
-			try {
-				
-				JSONArray jsonArray = new JSONArray(result);
-				JSONObject jsonObject = jsonArray.getJSONObject(0);
-				
-				Singleton.setName(jsonObject.getString("name").toString());
-				Singleton.setRanking(Double.parseDouble(jsonObject.getString("ranking").toString()));
-				Singleton.setLevel(Double.parseDouble(jsonObject.getString("level").toString()));
-				Singleton.setEmail(jsonObject.getString("email").toString());
-				Singleton.setProfile(jsonObject.getString("profile").toString());
-				Singleton.setPosition(jsonObject.getString("position").toString());
-				activity.goToMain();
-			} catch (JSONException e) {
-				Toast.makeText(activity, "catch", Toast.LENGTH_LONG).show();
-
-				e.printStackTrace();
-			}
-			
-			
+			Toast.makeText(activity, "OK", Toast.LENGTH_LONG).show();
 		}
 		
 		progDailog.dismiss();

@@ -67,7 +67,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="oauth" android:host="t4jsample"/>
+                <data android:scheme="x-oauthflow-twitter" android:host="callback" />
             </intent-filter>
             
         </activity>

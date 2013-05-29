@@ -1,6 +1,11 @@
 package com.dmha.soccerin.activity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.dmha.soccerin.asynctask.TaskDownloadImages;
+import com.dmha.soccerin.asynctask.TaskUserInformation;
+import com.dmha.soccerin.asynctask.TaskUserUpdate;
 import com.dmha.soccerin.utils.Singleton;
 import com.dmha.soccerin.utils.Utils;
 
@@ -106,6 +111,33 @@ public class Profile extends Activity {
 
 	public void updateUser(View view) {
 
+		profileName.setText(profileInputName.getText().toString());
+		
+		Map<String, String> credentials = new HashMap<String, String>();
+		credentials.put("passwd", (profileInputPassword.getText().toString().length() > 6) ? profileInputPassword.getText().toString() : Singleton.getPasswd());
+		credentials.put("username", profileUsername.getText().toString());
+		credentials.put("name", profileInputName.getText().toString());
+		credentials.put("email", profileInputEmail.getText().toString());
+		credentials.put("url", getString(R.string.url_update_user));
+		credentials.put("position", getPosition());
+		
+		new TaskUserUpdate(this).execute(credentials);
+	}
+	
+	private String getPosition(){
+		String position = profileInputPosition.getSelectedItem().toString();
+		
+		if(position.equals("Arquero")){
+			return "GK";
+		}else if(position.equals("Defensa")){
+			return "DF";
+		} else if(position.equals("Volante")){
+			return "MF";
+		}else{
+			return "FW";
+		}
+
+	
 	}
 
 	public void goToUpdate(View view) {

@@ -13,6 +13,7 @@ public class Singleton {
 	 private static int old = 22;
 	 private static String city = "Armenia, Q";
 	 private static String idUser = "857aa80e024bc0d9dac7f49b8da686d6?s=200";
+	 private static String passwd = "";
      private Singleton(){}
 
     public static String getIdUser() {
@@ -36,6 +37,12 @@ public class Singleton {
 	}
 	public static void setName(String name) {
 		Singleton.name = name;
+	}
+	public static String getPasswd() {
+		return passwd;
+	}
+	public static void setPasswd(String passwd) {
+		Singleton.passwd = passwd;
 	}
 	public static String getPosition() {
 		return position;
