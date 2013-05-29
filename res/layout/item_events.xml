@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/item_team_user"
+        android:id="@+id/profile_txt_passwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/event_user"

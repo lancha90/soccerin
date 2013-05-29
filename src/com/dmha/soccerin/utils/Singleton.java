@@ -9,7 +9,7 @@ public class Singleton {
 	 private static String profile = "MF";
 	 private static double ranking = 9.5;
 	 private static double level = 9.5;
-	 private static int position = 1;
+	 private static String position = "GK";
 	 private static int old = 22;
 	 private static String city = "Armenia, Q";
 	 private static String idUser = "857aa80e024bc0d9dac7f49b8da686d6?s=200";
@@ -37,10 +37,10 @@ public class Singleton {
 	public static void setName(String name) {
 		Singleton.name = name;
 	}
-	public static int getPosition() {
+	public static String getPosition() {
 		return position;
 	}
-	public static void setPosition(int position) {
+	public static void setPosition(String position) {
 		Singleton.position = position;
 	}
 	public static String getCity() {

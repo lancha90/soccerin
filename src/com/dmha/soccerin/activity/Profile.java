@@ -10,12 +10,17 @@ import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 public class Profile extends Activity {
 
+	private ViewFlipper vf;
+	
 	private ImageView profilePhoto;
 	private ImageView profilePosition;
 
@@ -26,10 +31,17 @@ public class Profile extends Activity {
 	private TextView profileLevel;
 	private TextView profileRanking;
 
+	private EditText profileInputName;
+	private EditText profileInputEmail;
+	private EditText profileInputPassword;
+	private Spinner profileInputPosition;
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
 
+		vf = (ViewFlipper) findViewById(R.id.vf_profile);
+		
 		profilePhoto = (ImageView) findViewById(R.id.profile_photo);
 		profilePosition = (ImageView) findViewById(R.id.profile_position);
 
@@ -40,6 +52,11 @@ public class Profile extends Activity {
 		profileRanking = (TextView) findViewById(R.id.profile_ranking);
 		profileLevel = (TextView) findViewById(R.id.profile_level);
 
+		profileInputName = (EditText) findViewById(R.id.profile_input_name);
+		profileInputEmail = (EditText) findViewById(R.id.profile_input_email);
+		profileInputPassword = (EditText) findViewById(R.id.profile_input_password);
+		profileInputPosition = (Spinner) findViewById(R.id.profile_input_position);
+
 		setInformation();
 
 		if (Utils.isGetActionBar()) {
@@ -48,36 +65,29 @@ public class Profile extends Activity {
 	}
 
 	private void setInformation() {
+		String position = Singleton.getPosition();
+		
+		profileInputName.setText(Singleton.getName());
+		profileInputEmail.setText(Singleton.getEmail());
+		
 		profileName.setText(Singleton.getName());
 		profileUsername.setText(Singleton.getUsername());
 		profileCity.setText(Singleton.getCity());
-		profileYears.setText(""+Singleton.getOld());
-		profileLevel.setText(""+Singleton.getLevel());
-		profileRanking.setText(""+Singleton.getRanking());
-		
+		profileYears.setText("" + Singleton.getOld());
+		profileLevel.setText("" + Singleton.getLevel());
+		profileRanking.setText("" + Singleton.getRanking());
 
 		profilePhoto.setTag(this.getString(R.string.url_gravatar)
 				+ Singleton.getIdUser());
-		
-		new TaskDownloadImages().execute(profilePhoto);
-		
-		switch (Singleton.getPosition()) {
-		case 1:
-			// Arquero
-			profilePosition.setImageResource(R.drawable.back);
-			break;
-		case 2:
-			// Defensa
-			break;
-		case 3:
-			// Volante
-			break;
-		case 4:
-			// Delantero
-			break;
 
-		default:
-			break;
+		new TaskDownloadImages().execute(profilePhoto);
+
+		
+		
+		if(position.equals("GK")) {			
+			profilePosition.setImageResource(R.drawable.back);
+		}else{
+			profilePosition.setImageResource(R.drawable.settings);
 		}
 	}
 
@@ -92,6 +102,18 @@ public class Profile extends Activity {
 
 	public void back(View view) {
 		finish();
+	}
+
+	public void updateUser(View view) {
+
+	}
+
+	public void goToUpdate(View view) {
+		vf.setDisplayedChild(1);
+	}
+
+	public void goToProfile(View view) {
+		vf.setDisplayedChild(0);
 	}
 
 }

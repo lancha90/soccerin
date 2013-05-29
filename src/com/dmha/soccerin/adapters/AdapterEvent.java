@@ -42,7 +42,7 @@ public class AdapterEvent extends ArrayAdapter {
 		TextView duration = (TextView) MyView.findViewById(R.id.item_event_duration);
 		duration.append(" "+contenidos.get(position).getDuration());
 		
-		TextView user = (TextView) MyView.findViewById(R.id.item_team_user);
+		TextView user = (TextView) MyView.findViewById(R.id.profile_txt_passwd);
 		user.append(" "+contenidos.get(position).getUser());
 		
 		return MyView;

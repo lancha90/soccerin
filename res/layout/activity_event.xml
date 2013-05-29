@@ -62,7 +62,7 @@
     </LinearLayout>
 
     <ViewFlipper
-        android:id="@+id/vf_events"
+        android:id="@+id/vf_profile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8" >

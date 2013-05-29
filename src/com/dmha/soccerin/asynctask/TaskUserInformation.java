@@ -60,7 +60,7 @@ public class TaskUserInformation extends AsyncTask<Map<String, String>, String, 
 				Singleton.setLevel(Double.parseDouble(jsonObject.getString("level").toString()));
 				Singleton.setEmail(jsonObject.getString("email").toString());
 				Singleton.setProfile(jsonObject.getString("profile").toString());
-
+				Singleton.setPosition(jsonObject.getString("position").toString());
 				activity.goToMain();
 			} catch (JSONException e) {
 				e.printStackTrace();

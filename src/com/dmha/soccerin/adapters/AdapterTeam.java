@@ -37,7 +37,7 @@ public class AdapterTeam extends ArrayAdapter {
 		TextView name = (TextView) MyView.findViewById(R.id.item_team_name);
 		name.setText(team.get(position).getName());
 		
-		TextView user = (TextView) MyView.findViewById(R.id.item_team_user);
+		TextView user = (TextView) MyView.findViewById(R.id.profile_txt_passwd);
 		user.setText(team.get(position).getUser());
 		
 		

@@ -15,19 +15,23 @@ import com.dmha.soccerin.utils.Utils;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ViewFlipper;
 import android.support.v4.app.NavUtils;
 
-public class Event extends Activity {
+public class Event extends Activity implements OnItemClickListener {
 
 	public float init_x;
 	private ViewFlipper vf;
@@ -45,7 +49,7 @@ public class Event extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event);
 
-		vf = (ViewFlipper) findViewById(R.id.vf_events);
+		vf = (ViewFlipper) findViewById(R.id.vf_profile);
 		listMyEvents = (ListView) findViewById(R.id.list_my_team);
 		listAllEvents = (ListView) findViewById(R.id.list_all_team);
 
@@ -115,6 +119,7 @@ public class Event extends Activity {
 			ArrayList<com.dmha.soccerin.entity.Event> myEvents) {
 
 		listMyEvents.setAdapter(new AdapterEvent(this, myEvents));
+		listMyEvents.setOnItemClickListener(this);
 	}
 
 	/**
@@ -126,17 +131,18 @@ public class Event extends Activity {
 			ArrayList<com.dmha.soccerin.entity.Event> myEvents) {
 
 		listAllEvents.setAdapter(new AdapterEvent(this, myEvents));
+		listAllEvents.setOnItemClickListener(this);
 	}
 
 	public void loadDataFileds(ArrayList<String> spinnerArray) {
-		
+
 		ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
 				this, android.R.layout.simple_spinner_item, spinnerArray);
 		createField.setAdapter(spinnerArrayAdapter);
 	}
 
 	/**
-	 * Metodo encargado de termina la actividad y retornar a la actividad
+	 * Metodo encargado de terminar la actividad y retornar a la actividad
 	 * anterior
 	 * 
 	 * @param view
@@ -158,17 +164,16 @@ public class Event extends Activity {
 				+ createTime.getCurrentMinute() + ":00";
 		String duration = createDurationHours.getSelectedItem().toString()
 				+ "." + createDurationMinutes.getSelectedItem().toString();
-		
+
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("url", getString(R.string.url_create_event));
-		
+
 		params.put("user", Singleton.getEmail());
 		params.put("field", field);
 		params.put("date", date);
 		params.put("duration", duration);
 
 		new TaskEventCreate(this).execute(params);
-		
 
 	}
 
@@ -189,6 +194,7 @@ public class Event extends Activity {
 	public void goToMyEvent(View view) {
 		vf.setDisplayedChild(1);
 	}
+
 	/**
 	 * Metodo encargado de visualizar la vista de mis eventos
 	 * 
@@ -205,6 +211,20 @@ public class Event extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) {
+
+		TextView date = (TextView) view.findViewById(R.id.item_team_name);
+		TextView field = (TextView) view.findViewById(R.id.item_event_field);
+		
+		
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT,
+				"Te invito a mi partido. "+field.getText().toString()+" "+date.getText().toString()+" via @soccerin");
+		sendIntent.setType("text/plain");
+		startActivity(sendIntent);
 	}
 
 	/**

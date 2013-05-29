@@ -47,5 +47,9 @@
     <string name="menu_share">Compartir</string>
     <string name="login_start">Iniciar Sesión</string>
     <string name="login_tw">Twitter</string>
+    <string name="profile_name">Nombre:</string>
+    <string name="profile_email">Email:</string>
+    <string name="profile_update">Guardar Cambios</string>
+    <string name="profile_cancel">Cancelar</string>
 
 </resources>

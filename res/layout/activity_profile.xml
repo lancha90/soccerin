@@ -32,7 +32,6 @@
                     android:background="@drawable/back"
                     android:minWidth="48dip"
                     android:onClick="back" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -56,7 +55,6 @@
                     android:layout_gravity="center"
                     android:background="@drawable/settings"
                     android:minWidth="48dip" />
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -137,7 +135,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="Amigos" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -151,6 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:onClick="goToUpdate"
                             android:text="Editar" />
 
                     </LinearLayout>
@@ -167,9 +165,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="Mensajes" />
-
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -179,193 +175,15 @@
                     android:background="#fafafa"
                     android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" >
+                    <ViewFlipper
+                        android:id="@+id/vf_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="8" >
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/TextView06"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/calificacion"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/profile_ranking"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Medium Text"
-                                android:textAppearance="?android:attr/textAppearanceMedium" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/TextView04"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/nivel_juego"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/profile_level"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Medium Text"
-                                android:textAppearance="?android:attr/textAppearanceMedium" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/item_team_user"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/posicion"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <ImageView
-                                android:id="@+id/profile_position"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_launcher" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/textview1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/edad"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/profile_old"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Medium Text"
-                                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/TextView02"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/ciudad"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:orientation="vertical" >
-
-                            <TextView
-                                android:id="@+id/profile_city"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Medium Text"
-                                android:textAppearance="?android:attr/textAppearanceMedium" />
-                        </LinearLayout>
-                    </LinearLayout>
-
+                        <include layout="@layout/layout_profile_info" />
+                        <include layout="@layout/layout_profile_form" />
+                    </ViewFlipper>
                 </LinearLayout>
 
                 <LinearLayout
@@ -373,12 +191,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical" >
-
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
 
 </LinearLayout>
