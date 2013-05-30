@@ -1,29 +1,27 @@
 package com.dmha.soccerin.asynctask;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.dmha.soccerin.activity.Login;
-import com.dmha.soccerin.activity.Main;
-import com.dmha.soccerin.utils.Singleton;
+import com.dmha.soccerin.activity.Profile;
+import com.dmha.soccerin.entity.Friend;
 import com.github.kevinsawicki.http.HttpRequest;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-public class TaskUserInformation extends AsyncTask<Map<String, String>, String, String> {
+public class TaskFriendsUser extends AsyncTask<Map<String, String>, String, String> {
 	
 	private ProgressDialog progDailog;
-	private Login activity;
+	private Profile activity;
 	
-	public TaskUserInformation(Login activity){
+	public TaskFriendsUser(Profile activity){
 		this.activity = activity;
 	}
 	
@@ -51,16 +49,25 @@ public class TaskUserInformation extends AsyncTask<Map<String, String>, String, 
 		}else{
 			try {
 				
+				ArrayList<Friend> friends = new ArrayList<Friend>();
 				JSONArray jsonArray = new JSONArray(result);
-				JSONObject jsonObject = jsonArray.getJSONObject(0);
 				
-				Singleton.setName(jsonObject.getString("name").toString());
-//				Singleton.setRanking(Double.parseDouble(jsonObject.getString("ranking").toString()));
-//				Singleton.setLevel(Double.parseDouble(jsonObject.getString("level").toString()));
-				Singleton.setEmail(jsonObject.getString("email").toString());
-				Singleton.setProfile(jsonObject.getString("profile").toString());
-				Singleton.setPosition(jsonObject.getString("position").toString());
-				activity.goToMain();
+				for (int i = 0; i < jsonArray.length(); i++) {
+
+					JSONObject jsonObject = jsonArray.getJSONObject(i);
+					JSONObject jsonData = jsonObject.getJSONObject("fields");
+					JSONArray jsonFriends = jsonData.getJSONArray("friends");
+					
+					for (int j = 0; j < jsonFriends.length(); j++) {
+						String[] datos;
+						datos = jsonFriends.get(j).toString().split(" - ");
+						friends.add(new Friend(datos[0], datos[1]));
+					}
+					
+				}
+				
+				
+				activity.loadDataFriends(friends);
 			} catch (JSONException e) {
 				Toast.makeText(activity, "catch", Toast.LENGTH_LONG).show();
 
@@ -80,9 +87,6 @@ public class TaskUserInformation extends AsyncTask<Map<String, String>, String, 
 		data.remove("url");
 		
 		HttpRequest httpRequest = HttpRequest.post(url).form(data);
-		
-
-		Log.i("dmha", "codigo de respuesta: " + httpRequest.code());
 
 		if (httpRequest.code() != 404) {
 			return httpRequest.body();

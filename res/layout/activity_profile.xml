@@ -128,13 +128,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical" >
-
+
                         <Button
                             android:id="@+id/profile_friends"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Amigos" />
+                            android:onClick="goToFriend"
+                            android:text="@string/profile_friends" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -158,13 +160,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical" >
-
+
                         <Button
                             android:id="@+id/profile_message"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:onClick="goToMessage"
                             android:text="Mensajes" />
+
                     </LinearLayout>
                 </LinearLayout>
 
@@ -183,6 +187,8 @@
 
                         <include layout="@layout/layout_profile_info" />
                         <include layout="@layout/layout_profile_form" />
+                        <include layout="@layout/layout_profile_friend" />
+                        <include layout="@layout/layout_profile_inbox" />
                     </ViewFlipper>
                 </LinearLayout>
 

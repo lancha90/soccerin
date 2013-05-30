@@ -1,11 +1,20 @@
 package com.dmha.soccerin.activity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.dmha.soccerin.adapters.AdapterEvent;
+import com.dmha.soccerin.adapters.AdapterFriends;
+import com.dmha.soccerin.adapters.AdapterMessage;
 import com.dmha.soccerin.asynctask.TaskDownloadImages;
+import com.dmha.soccerin.asynctask.TaskEventUser;
+import com.dmha.soccerin.asynctask.TaskFriendsUser;
+import com.dmha.soccerin.asynctask.TaskMessageUser;
 import com.dmha.soccerin.asynctask.TaskUserInformation;
 import com.dmha.soccerin.asynctask.TaskUserUpdate;
+import com.dmha.soccerin.entity.Friend;
+import com.dmha.soccerin.entity.Message;
 import com.dmha.soccerin.utils.Singleton;
 import com.dmha.soccerin.utils.Utils;
 
@@ -17,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +50,9 @@ public class Profile extends Activity {
 	private EditText profileInputEmail;
 	private EditText profileInputPassword;
 	private Spinner profileInputPosition;
+	
+	private ListView listMyFriends;
+	private ListView listMyInbox;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,8 +74,13 @@ public class Profile extends Activity {
 		profileInputEmail = (EditText) findViewById(R.id.profile_input_email);
 		profileInputPassword = (EditText) findViewById(R.id.profile_input_password);
 		profileInputPosition = (Spinner) findViewById(R.id.profile_input_position);
+		
+		listMyFriends = (ListView) findViewById(R.id.list_my_friends);
+		listMyInbox = (ListView) findViewById(R.id.list_my_inbox);
 
 		setInformation();
+		getDataFriends();
+		getDataMessage();
 
 		if (Utils.isGetActionBar()) {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,6 +113,26 @@ public class Profile extends Activity {
 			profilePosition.setImageResource(R.drawable.settings);
 		}
 	}
+	/**
+	 * Metodo encargado de obtener la información de los amigos
+	 */
+	private void getDataFriends(){
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("username", Singleton.getUsername());
+		params.put("url", getString(R.string.url_all_friends));
+
+		new TaskFriendsUser(this).execute(params);
+	}
+	/**
+	 * Metodo encargado de obtener la información de los amigos
+	 */
+	private void getDataMessage(){
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("username", Singleton.getUsername());
+		params.put("url", getString(R.string.url_all_message));
+		
+		new TaskMessageUser(this).execute(params);
+	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -124,6 +162,26 @@ public class Profile extends Activity {
 		new TaskUserUpdate(this).execute(credentials);
 	}
 	
+	/**
+	 * Metodo encargado de listar los amigos del usuario
+	 * 
+	 * @param myFriends
+	 */
+	public void loadDataFriends(ArrayList<Friend> myFriends) {
+
+		listMyFriends.setAdapter(new AdapterFriends(this, myFriends));
+	}
+	
+	/**
+	 * Metodo encargado de listar los mensajes del usuario
+	 * 
+	 * @param myMessage
+	 */
+	public void loadDataMessage(ArrayList<Message> myMessage) {
+
+		listMyInbox.setAdapter(new AdapterMessage(this, myMessage));
+	}
+	
 	private String getPosition(){
 		String position = profileInputPosition.getSelectedItem().toString();
 		
@@ -140,12 +198,18 @@ public class Profile extends Activity {
 	
 	}
 
-	public void goToUpdate(View view) {
-		vf.setDisplayedChild(1);
-	}
-
 	public void goToProfile(View view) {
 		vf.setDisplayedChild(0);
 	}
+	public void goToUpdate(View view) {
+		vf.setDisplayedChild(1);
+	}
+	public void goToFriend(View view) {
+		vf.setDisplayedChild(2);
+	}
+	public void goToMessage(View view) {
+		vf.setDisplayedChild(3);
+	}
+
 
 }

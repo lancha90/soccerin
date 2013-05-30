@@ -51,5 +51,7 @@
     <string name="profile_email">Email:</string>
     <string name="profile_update">Guardar Cambios</string>
     <string name="profile_cancel">Cancelar</string>
+    <string name="profile_friends">Amigos</string>
+    <string name="profile_inbox">Mensajes</string>
 
 </resources>

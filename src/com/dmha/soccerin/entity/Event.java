@@ -20,31 +20,16 @@ public class Event {
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getDate() {
 		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
 	}
 	public String getField() {
 		return field;
 	}
-	public void setField(String field) {
-		this.field = field;
-	}
 	public String getDuration() {
 		return duration;
 	}
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
 	public String getUser() {
 		return user;
-	}
-	public void setUser(String user) {
-		this.user = user;
 	}
 }
